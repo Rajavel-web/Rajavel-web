@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+        .navbar {
+            position: fixed; /* Fixed navbar */
+            top: 0;
+            width: 100%;
+            z-index: 1000; /* Ensure it stays above other content */
+            background-color: white; /* Background color for visibility */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+        }
+        .sidebar {
+            position: fixed; /* Fixed sidebar */
+            top: 60px; /* Offset for the fixed navbar */
+            left: 0;
+            width: 250px;
+            height: calc(100vh - 60px); /* Adjust height to account for navbar */
+            background-color: #f8f9fa;
+            padding-top: 20px;
+            overflow-y: auto; /* Enable scrolling if content overflows */
+            z-index: 999; /* Ensure it stays below the navbar */
+        }
+        .sidebar .nav-link {
+            padding: 10px 20px;
+            color: #333;
+        }
+        .sidebar .nav-link:hover {
+            background-color: #2295c2d0;
+            color: white;
+        }
+        .sidebar .logout {
+            margin-top: auto;
+            padding: 10px 20px;
+            color: #333;
+            border-top: 1px solid #ddd;
+        }
+        .sidebar .logout:hover {
+            background-color: #e9ecef;
+        }
+        .main-content {
+            margin-top: 60px; /* Offset for the fixed navbar */
+            margin-left: 250px; /* Offset for the fixed sidebar */
+            padding: 20px;
+            overflow-y: auto; /* Enable scrolling if content overflows */
+            flex-grow: 1;
+        }
+        .display-area {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            min-height: 150px;
+            position: relative; /* For positioning the Modify button */
+        }
+        .btn-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .btn-container .btn {
+            flex: 1;
+        }
+        /* Large Display Area */
+        .lg-display-area {
+            margin-top: 10px;
+            max-width: 960px; /* Large size */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .lg-display-area table {
+            width: 100%;
+        }
+        /* Modify Button Styling */
+        .modify-button {
+            position: absolute;
+            bottom: 10px;
+            left: 20px;
+        }
+        /* Hide placeholder messages when data is available */
+        .placeholder-message {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand" href="admindashboard.html">
+                <img src="../../assets/SLA-Logo.png" alt="Logo" height="30">
+            </a>
+            <!-- Notification Icon -->
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-bell"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <ul class="nav flex-column">
+            <li class="nav-item active">
+                <a class="nav-link active" href="admindashboard.html">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="manageTrainers.html">
+                    <i class="fas fa-users"></i> Trainers
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="managePlacement.html">
+                    <i class="fas fa-briefcase"></i> Placement
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="manageCouncellor.html">
+                    <i class="fas fa-user-friends"></i> Counselors
+                </a>
+            </li>
+            <li class="nav-item logout">
+                <a class="nav-link" href="../../auth/login.html">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Admin Dashboard</h1>
+        <!-- Buttons Container -->
+        <!-- <div class="btn-container"> -->
+            <button class="btn btn-primary" onclick="addUser()">Add User</button>
+            <!-- <button class="btn btn-success" onclick="addPlacement()">Add Placement</button>
+            <button class="btn btn-info text-white" onclick="addCouncellor()">Add Counselor</button>
+        </div> -->
+        <!-- Display Areas -->
+        <div class="display-area">
+            <h5>Existing Trainers</h5>
+            <p class="placeholder-message" id="trainersPlaceholder">No trainers added yet.</p>
+            <!-- Modify Button -->
+            <button class="btn btn-sm btn-warning modify-button" onclick="edit()">
+                <i class="fas fa-edit"></i> Modify
+            </button>
+            <!-- Large Display Area -->
+            <div class="lg-display-area">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Gender</th>
+                        </tr>
+                    </thead>
+                    <tbody id="trainersTableBody">
+                        <!-- Data will be dynamically inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="display-area">
+            <h5>Existing Placements</h5>
+            <p class="placeholder-message" id="placementsPlaceholder">No placements added yet.</p>
+            <!-- Modify Button -->
+            <button class="btn btn-sm btn-warning modify-button" onclick="edit1()">
+                <i class="fas fa-edit"></i> Modify
+            </button>
+            <!-- Large Display Area -->
+            <div class="lg-display-area">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Company</th>
+                            <th>Position</th>
+                            <th>Location</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="placementsTableBody">
+                        <!-- Data will be dynamically inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="display-area">
+            <h5>Existing Counselors</h5>
+            <p class="placeholder-message" id="counselorsPlaceholder">No counselors added yet.</p>
+            <!-- Modify Button -->
+            <button class="btn btn-sm btn-warning modify-button" onclick="edit2()">
+                <i class="fas fa-edit"></i> Modify
+            </button>
+            <!-- Large Display Area -->
+            <div class="lg-display-area">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Gender</th>
+                        </tr>
+                    </thead>
+                    <tbody id="counselorsTableBody">
+                        <!-- Data will be dynamically inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS (Optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Function to fetch data from the database (mock example)
+        function fetchData(tableId, placeholderId, data) {
+            const tableBody = document.getElementById(tableId);
+            const placeholder = document.getElementById(placeholderId);
+
+            tableBody.innerHTML = ""; // Clear existing rows
+
+            if (data.length === 0) {
+                // If no data is available, show the placeholder message
+                placeholder.style.display = "block";
+            } else {
+                // Hide the placeholder message
+                placeholder.style.display = "none";
+
+                // Populate the table with data
+                data.forEach((item) => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${item.id || ""}</td>
+                        <td>${item.name || ""}</td>
+                        <td>${item.email || ""}</td>
+                        <td>${item.phone || ""}</td>
+                        <td>${item.gender || item.status || ""}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            }
+        }
+
+        // Mock data (replace this with actual database query results)
+        const trainersData = [
+            { id: 1, name: "John Doe", email: "john.doe@example.com", phone: "123-456-7890", gender: "Male" },
+            { id: 2, name: "Jane Smith", email: "jane.smith@example.com", phone: "987-654-3210", gender: "Female" }
+        ];
+        const placementsData = [];
+        const counselorsData = [];
+
+        // Fetch data for each table on page load
+        window.onload = () => {
+            fetchData("trainersTableBody", "trainersPlaceholder", trainersData);
+            fetchData("placementsTableBody", "placementsPlaceholder", placementsData);
+            fetchData("counselorsTableBody", "counselorsPlaceholder", counselorsData);
+        };
+
+        // Placeholder functions for button actions
+        function addUser() {
+            window.location.href = "add-user.html";
+        }
+        function edit() {
+            window.location.href = "manageTrainers.html";
+        }
+        // function addPlacement() {
+        //     window.location.href = "managePlacement.html";
+        // }
+        function edit1() {
+            window.location.href = "managePlacement.html";
+        }
+        // function addCouncellor() {
+        //     window.location.href = "manageCouncellor.html";
+        // }
+        function edit2() {
+            window.location.href = "manageCouncellor.html";
+        }
+    </script>
+</body>
+</html>

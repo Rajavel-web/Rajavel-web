@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Training Institute</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome for Social Media Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        .modal-dialog {
+            max-width: calc(500px + 70px);
+        }
+        .modal-content {
+            border-radius: 10px;
+        }
+        .modal-header {
+            border-bottom: none;
+        }
+        .modal-footer {
+            border-top: none;
+        }
+        .modal-body .form-control {
+            border-style: dashed;
+            border-color: #ced4da;
+            border-width: 1px;
+        }
+        .custom-modal-dialog {
+            width: 70%;
+            margin: auto;
+        }
+        .custom-modal-content {
+            height: 50%;
+            overflow-y: auto;
+        }
+        .navbar-transparent {
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .navbar-transparent,
+        .navbar-transparent .navbar-toggler-icon,
+        .navbar-transparent .btn {
+            color: white !important;
+        }
+        .navbar-transparent .container {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .intro-section {
+            background-color: #dfe9f3;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        /* Add Dashed Border for Inquiry Form */
+        .container {
+    margin-top: 20px;
+}
+
+.inquiry-form-container {
+    border: 2px dashed #030303;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white; /* Keep form background clean */
+    /* display: inline-block; */
+    
+}
+
+.display-area {
+    background-color: #b4c3dc;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-control {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Ensure image is properly sized */
+.img-rounded {
+    max-width: 100%;
+    border-radius: 10px;
+}
+        /* Footer Styling */
+        footer {
+            background-color: #003366; /* Dark Blue */
+            color: #e6f3ff; /* Light Blue Text */
+            padding: 30px 0;
+            text-align: center;
+        }
+        footer a {
+            color: #b3d9ff; /* Light Blue Links */
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: #ffffff; /* White on Hover */
+        }
+        footer .social-media-icons {
+            margin-bottom: 20px;
+        }
+        footer .social-media-icons a {
+            font-size: 24px;
+            margin: 0 10px;
+        }
+        footer .contact-details {
+            margin-bottom: 20px;
+        }
+
+
+
+
+        .right-side {
+    text-align: right; /* Moves content inside to the right */
+}
+
+.right-side img {
+    display: block;
+    margin-left: auto;
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-transparent fixed-top">
+        <div class="container">
+            <a href="home.html">
+                <img src="../assets/SLA-Logo.png" alt="Logo" height="30">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <a class="btn btn-primary" href="../auth/login.html">Staff login</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5 pt-5">
+        <section class="text-center py-5" style="background-color: #ddeaf7; padding: 30px; border-radius: 10px;">
+            <h1>Software Training & 100% Placements</h1>
+            <p>Get a Job - Guaranteed!</p>
+            <p>Enroll Now for Trending Courses with Job Assurance</p>
+        </section>
+        <section class="intro-section mt-5">
+            <h2>You have just reached</h2>
+            <p>
+                <strong>The Best Software Training Institute in Chennai</strong><br>
+                SLA is the Best Software Training Institute in Chennai for its Prominent IT Training and Placement Institute steered by IT experts with 100% placement guidance. With over 20 years of experience in Training and Placement, our institute is acclaimed for its practical approach, enabling students to master 70+ technologies effortlessly.
+            </p>
+            <p>
+                Our training is led by IT working professionals from prestigious MNCs, offering an authentic corporate experience. We are dedicated to nurturing skilled professionals to thrive in the ever-evolving IT field with our 500+ hiring partners.
+            </p>
+        </section>
+        <section class="text-center py-5" >
+            <h2>Training Programs</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="../assets/sla1.webp" alt="On-Premise Training" class="img-fluid">
+                    <h4>On-Premise Classroom Training</h4>
+                </div>
+                <div class="col-md-4">
+                    <img src="../assets/sla2.webp" alt="Online Training" class="img-fluid">
+                    <h4>Instructor-led Live Online Training</h4>
+                </div>
+                <div class="col-md-4">
+                    <img src="../assets/sla3.webp" alt="Self-Paced Training" class="img-fluid">
+                    <h4>Self-Paced Online Training</h4>
+                </div>
+            </div>
+        </section>
+        <section class="text-center py-5">
+            <h2>Our Hiring Partners</h2>
+            <p>Top MNCs hire from us</p>
+            <div class="row">
+                <div class="col-md-3 p-2">
+                    <img src="../assets/Capgemini.png" alt="Capgemini" class="img-fluid">
+                </div>
+                <div class="col-md-3 p-2">
+                    <img src="../assets/IBM.png" alt="IBM" class="img-fluid">
+                </div>
+                <div class="col-md-3 p-2">
+                    <img src="../assets/HCL.png" alt="HCL" class="img-fluid">
+                </div>
+                <div class="col-md-3 p-2">
+                    <img src="../assets/TCS.png" alt="TCS" class="img-fluid">
+                </div>
+            </div>
+        </section>
+        <!-- Inquiry Section Wrapped in Display Area -->
+        <section class="display-area mb-5" >
+            <div class="row align-items-center">
+                <!-- Left Side: Inquiry Form -->
+               <!-- <div class="col-md-6 inquiry-form-container">
+                    <h2>Inquiry Form</h2>
+                    <p>If you have any doubts about the courses, feel free to talk with us and start your career in IT.</p>
+                    <div>
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Name</label>
+                                <input type="text" class="form-control" placeholder="Enter your name">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" placeholder="Enter your email">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" placeholder="Enter your phone number">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Address</label>
+                                <input type="text" class="form-control" placeholder="Enter your address">
+                            </div>
+                            <button type="button" class="btn btn-success w-100" id="btn-sub">
+                                Submit
+                            </button>
+                        </form>
+                    </div>
+                </div>  -->
+                <!-- <form onsubmit="return handleSubmit()">
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" id="name" class="form-control" placeholder="Enter your name">
+                        <div class="invalid-feedback">Name is required.</div>
+                    </div>
+                
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" id="email" class="form-control" placeholder="Enter your email">
+                        <div class="invalid-feedback">Enter a valid email.</div>
+                    </div>
+                
+                    <div class="mb-3">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number">
+                        <div class="invalid-feedback">Enter a valid phone number.</div>
+                    </div>
+                
+                    <div class="mb-3">
+                        <label class="form-label">Address</label>
+                        <input type="text" id="address" class="form-control" placeholder="Enter your address">
+                        <div class="invalid-feedback">Address is required.</div>
+                    </div>
+                
+                    <button type="submit" class="btn btn-success w-100">
+                        Submit
+                    </button>
+                </form>
+                
+                <script>
+                    function handleSubmit() {
+                        let isValid = true;
+                
+                        // Get form elements
+                        let name = document.getElementById("name");
+                        let email = document.getElementById("email");
+                        let phone = document.getElementById("phone");
+                        let address = document.getElementById("address");
+                
+                        // Reset previous errors
+                        [name, email, phone, address].forEach(input => input.classList.remove("is-invalid"));
+                
+                        // Validate Name (Required)
+                        if (name.value.trim() === "") {
+                            name.classList.add("is-invalid");
+                            isValid = false;
+                        }
+                
+                        // Validate Email (Required & Proper Format)
+                        let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                        if (!emailPattern.test(email.value.trim())) {
+                            email.classList.add("is-invalid");
+                            isValid = false;
+                        }
+                
+                        // Validate Phone (Required & Digits Only)
+                        let phonePattern = /^[0-9]{10}$/;
+                        if (!phonePattern.test(phone.value.trim())) {
+                            phone.classList.add("is-invalid");
+                            isValid = false;
+                        }
+                
+                        // Validate Address (Required)
+                        if (address.value.trim() === "") {
+                            address.classList.add("is-invalid");
+                            isValid = false;
+                        }
+                
+                        if (isValid) {
+                            alert("Form submitted successfully!");
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                </script> -->
+
+                <form id="inquiryForm" novalidate >
+                    <div class="col-xxl-50 inquiry-form-container" style="width: 600px">
+
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name" required pattern="^[a-zA-Z\s]+$">
+                        <div class="invalid-feedback">Name is required and must contain only letters.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                        <div class="invalid-feedback">Enter a valid email.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" id="address" placeholder="Enter your phone number" required pattern="[0-9]{10}">
+                        <div class="invalid-feedback">Enter a valid 10-digit phone number.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <input type="text" id="address" class="form-control" placeholder="Enter your address" required>
+
+                        <!-- <textarea class="form-control" id="address" rows="3" placeholder="Enter your address" required></textarea> -->
+                        <div class="invalid-feedback">Address is required.</div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success w-100">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Right Side: Image -->
+        <!-- <div class="col-md-6 text-end">
+            <img src="../assets/sla.webp" alt="Inquiry" class="img-fluid "> -->
+            <div class="col-md-6 right-side">
+                <img src="../assets/sla.webp" alt="Inquiry" class="img-fluid" height="700px" width="400px">
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+            <!-- Bootstrap JS -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+            <script>
+                // Form validation script
+                document.addEventListener('DOMContentLoaded', function () {
+                    const form = document.getElementById('inquiryForm');
+        
+                    // Handle form submission
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault(); // Prevent form submission
+                            event.stopPropagation(); // Stop propagation of the event
+                        }
+        
+                        form.classList.add('was-validated'); // Enable Bootstrap validation styles
+                    });
+        
+                    // Additional custom validation for Name field
+                    const nameInput = document.getElementById('name');
+                    nameInput.addEventListener('input', function () {
+                        const nameValue = nameInput.value.trim();
+                        const namePattern = /^[a-zA-Z\s]+$/;
+        
+                        if (!namePattern.test(nameValue)) {
+                            nameInput.setCustomValidity('Name must contain only letters.');
+                        } else {
+                            nameInput.setCustomValidity(''); // Clear custom validity if valid
+                        }
+                    });
+        
+                    // Additional custom validation for Phone field
+                    const phoneInput = document.getElementById('phone');
+                    phoneInput.addEventListener('input', function () {
+                        const phoneValue = phoneInput.value.trim();
+                        const phonePattern = /^[0-9]{10}$/;
+        
+                        if (!phonePattern.test(phoneValue)) {
+                            phoneInput.setCustomValidity('Phone number must be exactly 10 digits.');
+                        } else {
+                            phoneInput.setCustomValidity(''); // Clear custom validity if valid
+                        }
+                    });
+                });
+            </script>
+        
+            
+        </div>
+    </section>
+</div>
+            </div>
+        </section>
+    </div>
+    <div class="modal fade" id="inquiryModal" tabindex="-1" aria-labelledby="inquiryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered custom-modal-dialog">
+            <div class="modal-content custom-modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="inquiryModalLabel">Inquiry Form</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Popup Form Remains Unchanged -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <!-- Social Media Icons -->
+            <div class="social-media-icons">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <!-- Contact Details -->
+            <div class="contact-details">
+                <p>Email: info@ittraininginstitute.com</p>
+                <p>Phone: +91 12345 67890</p>
+                <p>Address: 123 Main Street, Chennai, India</p>
+            </div>
+            <!-- Copyright -->
+            <div>
+                <p>&copy; 2023 IT Training Institute. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 
